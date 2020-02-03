@@ -1,12 +1,15 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using UIAutomationEndavaWebsite.PageObjects;
 
 namespace UIAutomationEndavaWebsite
 {
     public class EndavaWebsite
     {
         private IWebDriver driver;
+        private Home homePage;
+        private Automation automationPage;
         private readonly string endavaURL = "https://www.endava.com/";
 
         [SetUp]
@@ -17,9 +20,23 @@ namespace UIAutomationEndavaWebsite
         }
 
         [Test]
-        public void Navigation()
+        public void FillTheContactFormFromTheAutomationPage()
         {
             driver.Url = endavaURL;
+            homePage = new Home(driver);
+            automationPage = new Automation(driver);
+            homePage.
+                OpenMainMenu().
+                SelectAutomation();
+            automationPage.
+                FillFirstName("Sebastian").
+                FillLastName("Leal").
+                FillEmail("juan.leal@endava.com").
+                FillPhoneNumber("555-555").
+                FillCompany("Endava").
+                FillMessage("Endava RLZ").
+                SubmitContanctForm();
+            //TO DO: Implement a builder with defaults
         }
 
         [TearDown]
