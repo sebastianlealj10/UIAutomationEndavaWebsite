@@ -13,6 +13,7 @@ namespace UIAutomationEndavaWebsite
         public void Setup()
         {
             driver = new ChromeDriver();
+            driver.Manage().Window.Maximize();
         }
 
         [Test]
