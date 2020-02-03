@@ -20,7 +20,7 @@ namespace UIAutomationEndavaWebsite
         }
 
         [Test]
-        public void NotFillAllTheFiledsForTheContactFormFromTheAutomationPage()
+        public void NotFillingAllTheFiledsForTheContactFormFromTheAutomationPage()
         {
             driver.Url = endavaURL;
             homePage = new Home(driver);
@@ -37,7 +37,7 @@ namespace UIAutomationEndavaWebsite
                 FillMessage("Endava RLZ").
                 SubmitContanctForm();
             Assert.IsTrue(automationPage.ContactErrorMessage());
-            //TO DO: Implement a builder with defaults
+            //TODO: Implement a builder with defaults
         }
 
         [TearDown]

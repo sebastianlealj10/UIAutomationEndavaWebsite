@@ -4,7 +4,7 @@ namespace UIAutomationEndavaWebsite.PageObjects
 {
     class Automation
     {
-        //TO DO: Implement a separate class to the locators
+        //TODO: Implement a separate class to the locators
         private readonly IWebDriver driver;
         private IWebElement Firstname => driver.FindElement(By.Id("FirstName"));
         private IWebElement Lastname => driver.FindElement(By.Id("LastName"));
