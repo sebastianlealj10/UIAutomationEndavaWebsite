@@ -13,7 +13,7 @@ namespace UIAutomationEndavaWebsite.PageObjects
         private IWebElement Company => driver.FindElement(By.Id("new_companyname"));
         private IWebElement CustomMessage => driver.FindElement(By.Id("formCustomMessage"));
         private IWebElement SubmitButton => driver.FindElement(By.ClassName("mktoButton"));
-
+        private IWebElement ContactError => driver.FindElement(By.ClassName("mktoErrorMsg"));
         public Automation(IWebDriver driver)
         {
             this.driver = driver;
@@ -56,6 +56,10 @@ namespace UIAutomationEndavaWebsite.PageObjects
             return this;
         }
 
+        public bool ContactErrorMessage() 
+        {
+            return ContactError.Displayed;
+        }
     }
 
 }
