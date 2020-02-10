@@ -1,6 +1,8 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
+using System;
 using UIAutomationEndavaWebsite.PageObjects;
 
 namespace UIAutomationEndavaWebsite
@@ -8,6 +10,7 @@ namespace UIAutomationEndavaWebsite
     public class EndavaWebsite
     {
         private IWebDriver driver;
+        private WebDriverWait wait;
         private Home homePage;
         private Automation automationPage;
         private readonly string endavaURL = "https://www.endava.com/";
@@ -16,6 +19,7 @@ namespace UIAutomationEndavaWebsite
         public void Setup()
         {
             driver = new ChromeDriver();
+            wait = new WebDriverWait(driver, new TimeSpan(0, 0, 30));
             driver.Manage().Window.Maximize();
         }
 
@@ -23,7 +27,7 @@ namespace UIAutomationEndavaWebsite
         public void NotFillingAllTheFiledsForTheContactFormFromTheAutomationPage()
         {
             driver.Url = endavaURL;
-            homePage = new Home(driver);
+            homePage = new Home(driver, wait);
             automationPage = new Automation(driver);
             homePage.
                 OpenMainMenu().

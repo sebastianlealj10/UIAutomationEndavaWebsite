@@ -55,7 +55,6 @@ namespace UIAutomationEndavaWebsite.PageObjects
             SubmitButton.Click();
             return this;
         }
-
         public bool ContactErrorMessage() 
         {
             return ContactError.Displayed;
