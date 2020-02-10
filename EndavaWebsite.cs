@@ -2,6 +2,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using UIAutomationEndavaWebsite.PageObjects;
+using UIAutomationEndavaWebsite.PageObjects.AutomationPage;
 
 namespace UIAutomationEndavaWebsite
 {
