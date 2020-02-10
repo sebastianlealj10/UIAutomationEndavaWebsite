@@ -60,6 +60,18 @@ namespace UIAutomationEndavaWebsite.PageObjects
         {
             return ContactError.Displayed;
         }
+
+        public Automation DefaultUser() 
+        {
+            this.FillFirstName("Sebastian")
+                .FillLastName("Leal")
+                .FillEmail("juan.leal@endava.com")
+                .FillPhoneNumber("555-555")
+                .FillCompany("Endava")
+                .FillMessage("Endava RLZ")
+                .SubmitContanctForm();
+            return this;
+        }
     }
 
 }

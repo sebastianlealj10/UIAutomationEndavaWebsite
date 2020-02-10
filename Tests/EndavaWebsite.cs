@@ -28,16 +28,8 @@ namespace UIAutomationEndavaWebsite
             homePage.
                 OpenMainMenu().
                 SelectAutomation();
-            automationPage.
-                FillFirstName("Sebastian").
-                FillLastName("Leal").
-                FillEmail("juan.leal@endava.com").
-                FillPhoneNumber("555-555").
-                FillCompany("Endava").
-                FillMessage("Endava RLZ").
-                SubmitContanctForm();
+            automationPage.DefaultUser();
             Assert.IsTrue(automationPage.ContactErrorMessage());
-            //TODO: Implement a builder with defaults
         }
 
         [TearDown]
