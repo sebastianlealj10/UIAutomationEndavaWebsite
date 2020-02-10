@@ -8,7 +8,10 @@ namespace UIAutomationEndavaWebsite.PageObjects
         private readonly IWebDriver driver;
         private WebDriverWait wait;
         private IWebElement Mainmenu => driver.FindElement(By.CssSelector(".show-menu"));
-        private IWebElement Automationselect => driver.FindElement(By.XPath("//*[@id='mCSB_1_container']/div[1]/nav/ul/li[3]/a"));
+        private IWebElement Automationselect => wait
+            .Until(SeleniumExtras.WaitHelpers.ExpectedConditions
+            .ElementToBeClickable(driver
+                .FindElement(By.XPath("//*[@id='mCSB_1_container']/div[1]/nav/ul/li[3]/a"))));
 
         public Home(IWebDriver driver, WebDriverWait wait)
         {
@@ -24,7 +27,6 @@ namespace UIAutomationEndavaWebsite.PageObjects
 
         public Home SelectAutomation()
         {
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(Automationselect));
             Automationselect.Click();
             return this;
         }
