@@ -24,6 +24,6 @@ namespace :build do
     desc "Runs tests with NUnit only (without coverage)."
     task :test => [:compile] do
         puts "Running Tests..."
-        sh "#{NUNIT_EXE} /no-echo-results src/#{dll}/bin/Debug/#{dll}.dlll"
+        sh "#{NUNIT_EXE} /no-echo-results src/UIAutomationEndavaWebsite/bin/Debug/UIAutomationEndavaWebsite.dll"
     end
 end
