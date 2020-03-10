@@ -24,6 +24,6 @@ namespace :build do
     task :test => [:compile] do
         puts "Running Tests..."
         tests = FileList["#{SOURCE_PATH}/**/#{CONFIG}/*.UIAutomationEndavaWebsite.dll"].exclude(/obj\//)
-        sh "#{TEAMCITY_NUNIT_RUNNER} v2.0 x86 NUnit-2.4.6 /category-exclude:Acceptance #{tests}"
+        sh "#{TEAMCITY_NUNIT_RUNNER}"
     end
 end
