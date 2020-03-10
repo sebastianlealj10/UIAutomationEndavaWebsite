@@ -8,7 +8,8 @@ ARTIFACTS_PATH = "#{OUTPUT_PATH}/artifacts"
 SVN_URL = "http://aardvark-cms.googlecode.com/svn/trunk/"
 VERSION_MAJOR_MINOR_BUILD = "0.1.0"
 TEAMCITY_NUNIT_RUNNER = ENV["system.teamcity.dotnet.nunitlauncher"]
-NUNIT_EXE = "../tools/NUnit/nunit-console.exe"
+NUNIT_EXE = "C:/BuildAgent/tools/NUnit.Console.3.10.0/bin/net35/nunit-console.exe"
+tests = FileList["#{SOURCE_PATH}/**/#{CONFIG}/*.UIAutomationEndavaWebsite.dll"].exclude(/obj\//)
 task :default => ["build:all"]
 namespace :build do
     task :all => [:compile, :test]
@@ -23,7 +24,6 @@ namespace :build do
     desc "Runs tests with NUnit only (without coverage)."
     task :test => [:compile] do
         puts "Running Tests..."
-        tests = FileList["#{SOURCE_PATH}/**/#{CONFIG}/*.UIAutomationEndavaWebsite.dll"].exclude(/obj\//)
-        sh "system.teamcity.dotnet.nunitlauncher"
+        sh "#{NUNIT_EXE} /no-echo-results src/#{dll}/bin/Debug/#{dll}.dlll"
     end
 end
