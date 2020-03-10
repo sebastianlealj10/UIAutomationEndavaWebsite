@@ -7,7 +7,7 @@ SVN_LOG_PATH = "#{OUTPUT_PATH}/svn_log.xml"
 ARTIFACTS_PATH = "#{OUTPUT_PATH}/artifacts"
 SVN_URL = "http://aardvark-cms.googlecode.com/svn/trunk/"
 VERSION_MAJOR_MINOR_BUILD = "0.1.0"
-TEAMCITY_NUNIT_RUNNER = ENV["packages\NUnit.ConsoleRunner.3.6.0\tools\nunit3-console.exe."]
+TEAMCITY_NUNIT_RUNNER = ENV["system.teamcity.dotnet.nunitlauncher"]
 NUNIT_EXE = "../tools/NUnit/nunit-console.exe"
 task :default => ["build:all"]
 namespace :build do
