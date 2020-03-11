@@ -9,6 +9,7 @@ SVN_URL = "http://aardvark-cms.googlecode.com/svn/trunk/"
 VERSION_MAJOR_MINOR_BUILD = "0.1.0"
 TEAMCITY_NUNIT_RUNNER = ENV["system.teamcity.dotnet.nunitlauncher"]
 NUNIT_EXE = ENV["system.teamcity.dotnet.nunitlauncher"]
+work = ENV["system.teamcity.build.workingDir"]
 tests = FileList["#{SOURCE_PATH}/**/#{CONFIG}/UIAutomationEndavaWebsite.dll"].exclude(/obj\//)
 task :default => ["build:all"]
 namespace :build do
@@ -24,6 +25,6 @@ namespace :build do
     desc "Runs tests with NUnit only (without coverage)."
     task :test => [:compile] do
         puts "Running Tests..."
-        sh "#{NUNIT_EXE} /category-exclude:Acceptance .../bin/Debug/netcoreapp3.0/UIAutomationEndavaWebsite.dll"
+        sh "#{NUNIT_EXE} /category-exclude:Acceptance #{work}/bin/Debug/netcoreapp3.0/UIAutomationEndavaWebsite.dll"
     end
 end
