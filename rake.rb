@@ -9,7 +9,7 @@ SVN_URL = "http://aardvark-cms.googlecode.com/svn/trunk/"
 VERSION_MAJOR_MINOR_BUILD = "0.1.0"
 TEAMCITY_NUNIT_RUNNER = ENV["system.teamcity.dotnet.nunitlauncher"]
 NUNIT_EXE = ENV["system.teamcity.dotnet.nunitlauncher"]
-tests = "/bin/Debug/netcoreapp3.0/UIAutomationEndavaWebsite.dll"
+tests = FileList["#{SOURCE_PATH}/**/#{CONFIG}/UIAutomationEndavaWebsite.dll"].exclude(/obj\//)
 task :default => ["build:all"]
 namespace :build do
     task :all => [:compile, :test]
